@@ -41,8 +41,8 @@ const Header = (props) => (
 
 Header.propTypes = {
     classes: PropTypes.object.isRequired,
-    addNew: PropTypes.func.isRequired,
-    sendTheme: PropTypes.func.isRequired,
+    addNew: PropTypes.func,
+    sendTheme: PropTypes.func,
     title: PropTypes.string,
 };
 
