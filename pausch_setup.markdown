@@ -13,12 +13,12 @@ WDW 2017 React Tutorial
 - Go to: https://nodejs.org/en/download/
 - Download and run respective installer i.e. 'Macintosh Installer' for Macs
 - Type 'npm' in terminal to check that its installed
-- Run 'npm install -g create-react-app'
-- Run 'create-react-app my-app'
-- To check that app works, run 'cd my-app' and then 'npm start'
 
 ## 3. Get Boilerplate
 - Go to: https://github.com/peterwu99/pausch
 - Click the Green 'Clone or download' button and click 'Download Zip'
 - Unzip the downloaded file
 - Starter code is in 'App.js' file
+- Run 'npm install'
+- Run 'npm run lib'
+- To 'npm run dev'
