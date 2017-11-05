@@ -1,5 +1,9 @@
 import React from 'react';
+import {serverSend} from './connection.js';
+
 import Header from './Header';
+import Panels from './Panels.js';
+import ColorSelector from './ColorSelector.js';
 
 const appStyle = {
     position: 'fixed',
@@ -15,31 +19,46 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            theme: {
-                name: 'Great Theme',
-                id: '',
-                panels: {
-                    0: '#808080',
-                    1: '#808080',
-                    2: '#808080',
-                    3: '#808080',
-                    4: '#808080',
-                    5: '#808080',
-                    6: '#808080',
-                    7: '#808080',
-                    8: '#808080',
-                    9: '#808080',
-                },
+            name: 'Great Theme',
+            id: 'slade',
+            selectedId: -1,
+            panels: {
+                0: '#808080',
+                1: '#808080',
+                2: '#808080',
+                3: '#808080',
+                4: '#808080',
+                5: '#808080',
+                6: '#808080',
+                7: '#808080',
+                8: '#808080',
             },
         };
     }
 
-    render() {
-        const {theme} = this.state;
+    selectPanel = (panelId) => {
+        this.setState({ selectedId: panelId });
+    }
 
+    updateColor = (panelId, newColor) => {
+        this.setState((prevState) => {
+            return { panels: {...prevState.panels, [panelId]: newColor} };
+        });
+    }
+
+    sendTheme = () => {
+        serverSend(this.state);
+    }
+
+    render() {
+        const {panels, name, selectedId} = this.state;
         return (
             <div style={appStyle}>
-                <Header addNew={this.newTheme} title={theme.name}/>
+                <Header title={name} addNew={this.newTheme} sendTheme={this.sendTheme}/>
+
+                <Panels colors={panels} selectPanel={this.selectPanel}/>
+                <ColorSelector selectedId={selectedId} selectedColor={panels[selectedId]}
+                    updateColor={this.updateColor}/>
             </div>
         );
     }

@@ -35,10 +35,26 @@ class ColorSelector extends React.Component {
     }
 
     render() {
-        const { classes, selectedPanelColor, updateColor, selectedPanelId } = this.props;
+        const { classes, selectedColor, updateColor, selectedId } = this.props;
+
+        if (selectedId == -1) {
+            return (
+                <Paper className={classes.root} style={{position: 'relative'}}>
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        zIndex: '10',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        backgroundColor: 'rgba(100, 100, 100, 0.6)'
+                    }}></div>
+                </Paper>
+            );
+        }
 
         return (
-            <Paper className={classes.root}>
+            <Paper className={classes.root} style={{position: 'relative'}}>
                 <div style={{
                     width: '100%',
                     height: '100%',
@@ -47,8 +63,8 @@ class ColorSelector extends React.Component {
                     padding: '10px',
                     justifyContent: 'space-between',
                 }}>
-                    <ChromePicker color={selectedPanelColor} onChangeComplete={(color) => updateColor(selectedPanelId, color)} disableAlpha={true} />
-                    <SwatchesPicker color={selectedPanelColor} onChangeComplete={(color) => updateColor(selectedPanelId, color)} width={500} height={230} />
+                    <ChromePicker color={selectedColor} onChangeComplete={(color) => updateColor(selectedId, color.hex)} disableAlpha={true} />
+                    <SwatchesPicker color={selectedColor} onChangeComplete={(color) => updateColor(selectedId, color.hex)} width={500} height={230} />
                 </div>
             </Paper>
         );
@@ -58,9 +74,9 @@ class ColorSelector extends React.Component {
 ColorSelector.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
-    selectedPanelColor: PropTypes.string.isRequired,
-    selectedPanelId: PropTypes.number.isRequired,
-    updateColor: PropTypes.func.isRequired,
+    selectedColor: PropTypes.string,
+    selectedId: PropTypes.number,
+    updateColor: PropTypes.func,
 };
 
 export default withStyles(styles, { withTheme: true })(ColorSelector);
