@@ -1,30 +1,23 @@
 import React from 'react';
-import Panel from './Panel';
+import Panel from './Panel.js';
 import PropTypes from 'prop-types';
 
-const styles = {
-    textAlign: 'center',
-    margin: '35px auto 0 auto',
-    //backgroundColor: 'lightgrey',
-};
+function Panels(props) {
+    var list = [];
+    for(var i = 0; i < 9; i++) {
+        list.push(
+            <Panel key={i} id={i} color={props.colors[i]}
+                isSelected={props.selectedPanel == i} selectPanel={props.selectPanel}/>
+        );
+    }
 
-const Panels = ({numPanels, selectedPanel, colors, selectPanel}) => (
-    <div id='panels' style={styles}>
-        {[...Array(numPanels)].map(
-            (e, i) =>
-                <Panel key={i} id={i} color={colors[i]}
-                    isSelected={selectedPanel == i} selectPanel={() => selectPanel(i)}
-                />
-        )}
-    </div>
-);
-
+    return ( <div id="panels">{list}</div> );
+}
 
 Panels.propTypes = {
-    numPanels: PropTypes.number.isRequired,
-    selectedPanel: PropTypes.number.isRequired,
-    colors: PropTypes.object.isRequired,
-    selectPanel: PropTypes.func.isRequired,
+    colors: PropTypes.object,
+    selectedPanel: PropTypes.number,
+    selectPanel: PropTypes.func,
 };
 
 export default Panels;

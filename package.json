@@ -5,21 +5,16 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
-    "lib": "cross-env NODE_ENV=production webpack --config ./config/webpack.dll.js --display-optimization-bailout --progress --profile --colors",
-    "clean": "rimraf ./dist ./lib"
+    "clean": "rimraf ./dist ./lib",
+    "start": "npm run dev"
   },
   "dependencies": {
-    "fetch": "^1.1.0",
     "material-ui": "next",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.0.0",
     "react-color": "^2.13.8",
     "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
     "react-swipeable-views": "^0.12.8",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "typeface-roboto": "^0.0.43"
   },
   "devDependencies": {

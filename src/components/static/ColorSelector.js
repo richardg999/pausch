@@ -58,9 +58,9 @@ class ColorSelector extends React.Component {
 ColorSelector.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
-    selectedPanelColor: PropTypes.string.isRequired,
-    selectedPanelId: PropTypes.number.isRequired,
-    updateColor: PropTypes.func.isRequired,
+    selectedPanelColor: PropTypes.string,
+    selectedPanelId: PropTypes.number,
+    updateColor: PropTypes.func,
 };
 
 export default withStyles(styles, { withTheme: true })(ColorSelector);

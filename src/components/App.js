@@ -2,101 +2,47 @@ import React from 'react';
 
 import Header from './Header';
 import ThemeDialog from './ThemeDialog';
-//import Sidebar from './Sidebar';
 import PanelSelection from './PanelSelection';
-
 import Timeline from './Timeline';
-
-const appStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    overflowY: 'scroll',
-};
-
-const contentStyle = {
-    backgroundColor: 'transparent',
-};
 
 export default class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            dialogOpen: false,
-            themeCreated: true,
-            selectedEvent: -1,
-            theme: {
-                name: 'Great Theme',
-                id: 'slade',
-                totalDuration: 0,
-                events: {
-                    0: {
-                        id: 0,
-                        name: 'Introduction',
-                        duration: '5',
-                        selectedPanel: -1,
-                        color: '#808080',
-                        panels: {
-                            0: '#808080',
-                            1: '#808080',
-                            2: '#808080',
-                            3: '#808080',
-                            4: '#808080',
-                            5: '#808080',
-                            6: '#808080',
-                            7: '#808080',
-                            8: '#808080',
-                            9: '#808080',
-                        },
-                    },
-                    1: {
-                        id: 1,
-                        name: 'Conclusion',
-                        duration: '5',
-                        selectedPanel: -1,
-                        color: '#808080',
-                        panels: {
-                            0: '#808080',
-                            1: '#808080',
-                            2: '#808080',
-                            3: '#808080',
-                            4: '#808080',
-                            5: '#808080',
-                            6: '#808080',
-                            7: '#808080',
-                            8: '#808080',
-                            9: '#808080',
-                        },
+            name: 'Great Theme',
+            id: 'slade',
+            selectedEvent: 0,
+            events: {
+                0: {
+                    id: 0,
+                    name: 'Introduction',
+                    duration: '5',
+                    selectedPanel: -1,
+                    panels: {
+                        0: '#808080',
+                        1: '#808080',
+                        2: '#808080',
+                        3: '#808080',
+                        4: '#808080',
+                        5: '#808080',
+                        6: '#808080',
+                        7: '#808080',
+                        8: '#808080',
+                        9: '#808080',
                     },
                 },
             },
         };
-
-        this.newTheme = this.newTheme.bind(this);
-        this.handleThemeClose = this.handleThemeClose.bind(this);
-        this.handleNewTheme = this.handleNewTheme.bind(this);
-        this.selectPanel = this.selectPanel.bind(this);
-        this.updateColor = this.updateColor.bind(this);
-        this.selectEvent = this.selectEvent.bind(this);
     }
 
-    newTheme() {
-        console.log('This will reset all of the information and create a new theme');
-        this.setState({ dialogOpen: true });
-    }
+    newTheme = () => {}
 
-    handleThemeClose() {
+    handleThemeClose = () => {
         console.log('This will close the theme box');
         this.setState({ dialogOpen: false });
     }
 
-    handleNewTheme() {
-        console.log('Creating a new theme');
-
-    }
 
     // Event Information
     selectEvent(eventID) {
