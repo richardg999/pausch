@@ -1,5 +1,4 @@
 const merge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 exports.loadImages = ({ include, exclude, options} = {}) => ({
@@ -26,6 +25,7 @@ exports.extractHTML = ({minify, isDev, host, port }) => {
             name: 'description',
             content: 'A better default template for html-webpack-plugin.',
         }],
+        favicon: './src/favicon.ico',
         title: 'Pausch Bridge UI',
     };
 

@@ -1,15 +1,12 @@
 const path = require('path');
-const fs = require('fs');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-
 const utils = require('./utils');
 const commonConfig = require('./webpack.common');
 const config = require('./config');
 
 const host = process.env.HOST || config.dev.host;
 const port = process.env.PORT || config.dev.port;
-const lib = path.resolve(__dirname, 'lib');
 
 module.exports = () => merge.smart([commonConfig,
     {

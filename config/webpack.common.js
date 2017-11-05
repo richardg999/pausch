@@ -70,14 +70,18 @@ module.exports = {
                     },
                 },
             },
+            {
+                test: /\.ico(\?v=\d+\.\d+\.\d+)?$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'images/[name].[ext]',
+                    },
+                },
+            },
         ],
     },
     plugins: [
-        new webpack.DllReferencePlugin({
-            context: path.resolve(__dirname),
-            manifest: require('../lib/vendor-manifest.json'),
-            name: '../lib/vendor.dll.js',
-        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
