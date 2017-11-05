@@ -1,18 +1,11 @@
 import React from 'react';
-import {serverSend} from './connection.js';
 
-import Header from './Header';
+// Do not modify these links
+import serverSend from './static/connection.js';
+import Header from './static/Header.js';
+import ColorSelector from './static/ColorSelector.js';
+
 import Panels from './Panels.js';
-import ColorSelector from './ColorSelector.js';
-
-const appStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    overflowY: 'scroll',
-};
 
 export default class App extends React.Component {
     constructor(props) {
@@ -36,24 +29,32 @@ export default class App extends React.Component {
         };
     }
 
+    // New Theme
+    newTheme = () => {}
+
+    // Send the theme to the server
+    sendTheme = () => {
+        serverSend(this.state.name, this.state.id, this.state.panels);
+        alert("You have successfully sent your theme!");
+    }
+
+    // Functions for selecting current panel to modify
     selectPanel = (panelId) => {
         this.setState({ selectedId: panelId });
     }
 
+    // Update the color of the currently selected panel
     updateColor = (panelId, newColor) => {
         this.setState((prevState) => {
             return { panels: {...prevState.panels, [panelId]: newColor} };
         });
     }
 
-    sendTheme = () => {
-        serverSend(this.state);
-    }
-
     render() {
         const {panels, name, selectedId} = this.state;
+
         return (
-            <div style={appStyle}>
+            <div className="main">
                 <Header title={name} addNew={this.newTheme} sendTheme={this.sendTheme}/>
 
                 <Panels colors={panels} selectPanel={this.selectPanel}/>

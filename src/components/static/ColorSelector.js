@@ -1,3 +1,11 @@
+// Color Selector: Allows users to select color and input current color
+/**
+ * Props:
+ * selectedId {number}: Id of the panel that is currently selected. -1 if no panel is selected
+ * selectedColor {string}: Color of the panel that is currently selected. Ignore if no panel is selected
+ * updateColor {function}: Callback function called when new color is selected. updateColor(panelId, newColor)
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -47,8 +55,12 @@ class ColorSelector extends React.Component {
                         position: 'absolute',
                         top: '0',
                         left: '0',
-                        backgroundColor: 'rgba(100, 100, 100, 0.6)'
-                    }}></div>
+                        backgroundColor: 'rgba(100, 100, 100, 0.3)',
+                        textAlign: 'center',
+                        padding: '50px',
+                    }}>
+                        Please select a panel to start modifying.
+                    </div>
                 </Paper>
             );
         }

@@ -1,3 +1,10 @@
+/**
+ * Header for the application including the name and the functions for the theme
+ * name {string}: Name of the Theme
+ * newTheme {function}: Creates a new theme. No parameters
+ * sendTheme {function}: Sends the finished theme. sendTheme()
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
