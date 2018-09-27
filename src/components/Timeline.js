@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import AddIcon from 'material-ui-icons/Add';
-import ClearIcon from 'material-ui-icons/Clear';
+import Typography from 'material-ui/Typography';
 
 const styles = {
     width: '80%',
@@ -25,7 +23,7 @@ const sectionStyle = {
 
 const mainStyles = {
     width: '90%',
-    height: '75px',
+    height: '55px',
     margin: '0 auto',
     marginTop: '30px',
     display: 'flex',
@@ -33,14 +31,7 @@ const mainStyles = {
     justifyContent: 'space-evenly',
 };
 
-const buttonStyles = {
-    width: '17%',
-    height: '100%',
-    padding: '10px',
-};
-
-
-const Timeline = ({classes, events, selectedEvent, selectEvent}) => (
+const Timeline = ({events, selectedEvent, selectEvent}) => (
     <div style={mainStyles}>
         <div style={styles}>
             {
@@ -50,28 +41,29 @@ const Timeline = ({classes, events, selectedEvent, selectEvent}) => (
                         <div key={event.id}
                             style={{
                                 ...sectionStyle,
+                                border: '4px solid transparent',
+                                borderRadius: '7px',
                                 backgroundColor: event.color,
                                 flex: event.duration,
                                 borderColor: selectedEvent == event.id ? '#3f51b5' : '#808080',
+                                margin: 5,
+                                textAlign: 'center',
+                                justifyContent: 'center',
                             }}
                             onClick={() => selectEvent(event.id)}
                         >
-                            {event.name}
+                            <Typography type="title" color="default">
+                                {event.name}
+                            </Typography>
                         </div>
                     );
                 })
             }
-
-        </div>
-        <div id='buttons' style={buttonStyles}>
-            <Button fab color="primary" aria-label="add" className={classes.button}><AddIcon /></Button>
-            <Button fab color="primary" aria-label="delete" className={classes.button}><ClearIcon /></Button>
         </div>
     </div>
 );
 
 Timeline.propTypes = {
-    classes: PropTypes.object.isRequired,
     events: PropTypes.object.isRequired,
     selectedEvent: PropTypes.number.isRequired,
     selectEvent: PropTypes.func.isRequired,
