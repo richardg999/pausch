@@ -9,7 +9,9 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "material-ui": "next",
+    "@babel/runtime": "^7.0.0",
+    "fetch": "^1.1.0",
+    "material-ui": "1.0.0-beta.18",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.0.0",
     "react-color": "^2.13.8",

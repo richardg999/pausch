@@ -56,14 +56,14 @@ export default class App extends React.Component {
             return { theme: {
                 ...prevState.theme,
                 events: {
-                    ...prevState.theme.events
+                    ...prevState.theme.events,
                 },
             }};
         });
         this.selectEvent(eventID);
     }
 
-    deleteEvent(eventID) {
+    deleteEvent() {
         this.selectEvent(0);
     }
 
