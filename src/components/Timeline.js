@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
     width: '80%',
@@ -45,7 +45,7 @@ const Timeline = ({events, selectedEvent, selectEvent}) => (
                                 borderRadius: '7px',
                                 backgroundColor: event.color,
                                 flex: event.duration,
-                                borderColor: selectedEvent == event.id ? '#3f51b5' : '#808080',
+                                borderColor: selectedEvent === event.id ? '#3f51b5' : '#808080',
                                 margin: 5,
                                 textAlign: 'center',
                                 justifyContent: 'center',

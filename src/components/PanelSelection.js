@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Panels from './Panels';
-import ColorSelector from './ColorSelector';
+import ColorSelector from './static/ColorSelector';
 
 const PanelSelection = ({event, selectPanel, updatePanel}) => {
     const { id, selectedPanel, panels } = event;

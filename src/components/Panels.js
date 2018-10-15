@@ -7,7 +7,7 @@ function Panels(props) {
     for(var i = 0; i < 9; i++) {
         list.push(
             <Panel key={i} id={i} color={props.colors[i]}
-                isSelected={props.selectedPanel == i} selectPanel={props.selectPanel}/>
+                isSelected={props.selectedPanel === i} selectPanel={props.selectPanel}/>
         );
     }
 

@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Dialog, {
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-} from 'material-ui/Dialog';
+
+import { 
+    Button, 
+    TextField, 
+    Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogContentText, 
+    DialogTitle
+} from '@material-ui/core';
+
 
 const ThemeDialog = ({isOpen, handleRequestClose, handleRequestFinish}) => (
     <Dialog open={isOpen} onRequestClose={handleRequestClose}>
