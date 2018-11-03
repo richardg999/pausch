@@ -10,8 +10,6 @@ const PanelSelection = ({event, selectPanel, updatePanel}) => {
     console.log('selected panel', selectedPanel);
     return (
         <div>
-            <Panels numPanels={10} colors={panels} selectedPanel={selectedPanel}
-                selectPanel={(panelID) => selectPanel(panelID, id)}/>
             <ColorSelector selectedPanelColor={selectedPanel >= 0 ? panels[selectedPanel]: ''}
                 selectedPanelId={selectedPanel} updateColor={(panelID, newColor) => updatePanel(id, panelID, newColor)} />
         </div>
