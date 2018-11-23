@@ -9,6 +9,7 @@ export default class App extends React.Component {
                 <Header title={"Title"} />
                 <div id='content'>
                     <ColorSelector />
+                    Hi
                 </div>
             </div>
         );
